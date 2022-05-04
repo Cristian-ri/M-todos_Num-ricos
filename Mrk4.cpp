@@ -52,7 +52,7 @@ const float Mrk4::getH()const{
 	return h;
 }
 
-void Mrk4::solucion(){
+float Mrk4::solucion(){
 	
 	float k1,k2,k3,k4, h, a, k, i;
 	cout<<"\nh = "<<h<<endl;
@@ -82,9 +82,9 @@ void Mrk4::solucion(){
 void Mrk4::mostrar(){
 	
 	cout<<"Ingrese valor inicial de x : \nx0 = "<<x0<<endl;
-	cout<<"Ingrese valor final de x : \nxf ="<<y0<<endl;
-	cout<<"Ingrese valor inicial de y : \ny ="<<ax<<endl;
-	cout<<"Ingrese numero de iteraciones : \ni ="<<h<<endl;
+	cout<<"Ingrese valor final de y : \nxf ="<<y0<<endl;
+	cout<<"Ingrese valor inicial de aproximacion : \ny ="<<ax<<endl;
+	cout<<"Ingrese numero de iteraciones : \nh ="<<h<<endl;
 }
 
 

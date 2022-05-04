@@ -91,7 +91,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=SinNombre1.cpp
+FileName=Ecuacion.h
 CompileCpp=1
 Folder=
 Compile=1
