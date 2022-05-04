@@ -28,7 +28,7 @@ class Mrk4:public MN{
 		const float getH()const;
 	
 		void mostrar();	
-		float solucion();
+		float solucion(const Mrk4 *);
 		
 		
 		

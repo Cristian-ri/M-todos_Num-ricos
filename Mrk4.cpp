@@ -52,30 +52,32 @@ const float Mrk4::getH()const{
 	return h;
 }
 
-float Mrk4::solucion(){
+float Mrk4::solucion(const Mrk4 *mrk1){
 	
-	float k1,k2,k3,k4, h, a, k, i;
+	float k1,k2,k3,k4,n,y,k;
 	cout<<"\nh = "<<h<<endl;
 	cout<<"0  |x= "<<x0<<"  y= "<<y0;
-	k1 = (x0*y0);
-	k2 = (x0+(h/2))*(y0+((h/2)*k1));
-	k3 = (x0+(h/2))*(y0+((h/2)*k2));
-	k4 = (x0+h)*(y0+(h*k3));
+	n= (mrk1->getAx()-x0)/h;
+	k1 = Ecuacion(x0,y0);
+	k2 = Ecuacion(x0*(h/2),y0+(k1*h/2));
+	k3 = Ecuacion(x0*(h/2),y0+(k2*h/2));
+	k4 = Ecuacion(x0+h,y0+(k3*h));
 	
 	cout<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
 	k = x0+h;
-	for(a=1; a<=i ; a++)
+	for(int i=1; i<=n+1; i++)
 	{
-		y0 = y0 + ((h/6)*(k1+(2*k2)+(2*k3)+k4));
+		y = y0 + ((h/6)*(k1+(2*k2)+(2*k3)+k4));
 		k1 = (k*y0);
 		k2 = (k+(h/2))*(y0+((h/2)*k1));
 		k3 = (k+(h/2))*(y0+((h/2)*k2));
 		k4 = (k+h)*(y0+(h*k3));
 		
-		cout<<a<<"  |x= "<<k<<"  y= "<<y0<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
+		cout<<i<<"  |x= "<<k<<"  y= "<<y0<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
 		k=k+h;
+		y=y0;
 	}
-	cout<<"\nEl resultado es : \n\ty = "<<y0<<endl;
+	cout<<"\nEl resultado es : \n\ty = "<<y<<endl;
 	
 }
 

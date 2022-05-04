@@ -6,9 +6,7 @@ using std::endl;
 class MN{
 	
 	public:
-		virtual float solucion()=0;
-		virtual void mostrar()=0;
-		
+		virtual void mostrar()=0;		
 };
 
 
