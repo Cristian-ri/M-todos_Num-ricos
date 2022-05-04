@@ -1,90 +1,90 @@
 #include "Mrk4.hpp"
+#include "Ecuacion.h"
 
-Mrk4::Mrk4(float _xi, float _xf, float _y, float _a){
+Mrk4::Mrk4(float _x0, float _y0, float _ax, float _h){
 	
-	this->xi = _xi;
-	this->xf = _xf;
-	this->y = _y;
-	this->a = _a;
-	
+	this->x0 = _x0;
+	this->y0 = _y0;
+	this->ax = _ax;
+	this->h = _h;
+		
 }
 
 Mrk4::Mrk4(){
 	
-	this->xi = 0;
-	this->xf = 0;
-	this->y = 0;
-	this->a = 0;
+	this->x0 = 0;
+	this->y0 = 0;
+	this->ax = 0;
+	this->h = 0;
+		
 }
 
-void Mrk4::setXi(const float XI){
+void Mrk4::setX0(const float _X0){
 	
-	this->xi = XI;	
+	this->x0 = _X0;	
 }
 
-void Mrk4::setXf(const float XF){
+void Mrk4::setY0(const float _Y0){
 	
-	this->xf = XF;	
+	this->y0 = _Y0;	
 }
 
-void Mrk4::setY(const float YY){
+void Mrk4::setAx(const float _Ax){
 	
-	this->y = YY;
+	this->ax = _Ax;
 	
 }
-void Mrk4::setI(const float II){
+void Mrk4::setH(const float _H){
 	
-	this->i = II;	
+	this->h = _H;	
 }
 
-const float Mrk4::getXi()const{
-	return xi;
+const float Mrk4::getX0()const{
+	return x0;
 }
-const float Mrk4::getXf()const{
-	return xf;
+const float Mrk4::getY0()const{
+	return y0;
 }
-const float Mrk4::getY()const{
-	return y;
+const float Mrk4::getAx()const{
+	return ax;
 }
-const float Mrk4::getI()const{
-	return i;
+const float Mrk4::getH()const{
+	return h;
 }
 
 void Mrk4::solucion(){
 	
 	float k1,k2,k3,k4, h, a, k, i;
-	a = getI();
-	h = (xf - xi)/i;
 	cout<<"\nh = "<<h<<endl;
-	cout<<"0  |x= "<<xi<<"  y= "<<y;
-	k1 = (xi*y);
-	k2 = (xi+(h/2))*(y+((h/2)*k1));
-	k3 = (xi+(h/2))*(y+((h/2)*k2));
-	k4 = (xi+h)*(y+(h*k3));
+	cout<<"0  |x= "<<x0<<"  y= "<<y0;
+	k1 = (x0*y0);
+	k2 = (x0+(h/2))*(y0+((h/2)*k1));
+	k3 = (x0+(h/2))*(y0+((h/2)*k2));
+	k4 = (x0+h)*(y0+(h*k3));
 	
 	cout<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
-	k = xi+h;
+	k = x0+h;
 	for(a=1; a<=i ; a++)
 	{
-		y = y + ((h/6)*(k1+(2*k2)+(2*k3)+k4));
-		k1 = (k*y);
-		k2 = (k+(h/2))*(y+((h/2)*k1));
-		k3 = (k+(h/2))*(y+((h/2)*k2));
-		k4 = (k+h)*(y+(h*k3));
+		y0 = y0 + ((h/6)*(k1+(2*k2)+(2*k3)+k4));
+		k1 = (k*y0);
+		k2 = (k+(h/2))*(y0+((h/2)*k1));
+		k3 = (k+(h/2))*(y0+((h/2)*k2));
+		k4 = (k+h)*(y0+(h*k3));
 		
-		cout<<a<<"  |x= "<<k<<"  y= "<<y<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
+		cout<<a<<"  |x= "<<k<<"  y= "<<y0<<"  k1= "<<k1<<"  k2= "<<k2<<"  k3= "<<k3<<"  k4= "<<k4<<endl;
 		k=k+h;
 	}
-	cout<<"\nEl resultado es : \n\ty = "<<y<<endl;
+	cout<<"\nEl resultado es : \n\ty = "<<y0<<endl;
 	
 }
 
 void Mrk4::mostrar(){
 	
-	cout<<"Ingrese valor inicial de x : \nx0 = "<<xi<<endl;
-	cout<<"Ingrese valor final de x : \nxf ="<<xf<<endl;
-	cout<<"Ingrese valor inicial de y : \ny ="<<y<<endl;
-	cout<<"Ingrese numero de iteraciones : \ni ="<<a<<endl;
+	cout<<"Ingrese valor inicial de x : \nx0 = "<<x0<<endl;
+	cout<<"Ingrese valor final de x : \nxf ="<<y0<<endl;
+	cout<<"Ingrese valor inicial de y : \ny ="<<ax<<endl;
+	cout<<"Ingrese numero de iteraciones : \ni ="<<h<<endl;
 }
 
 

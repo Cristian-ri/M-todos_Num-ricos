@@ -11,19 +11,21 @@ class Mrk4:public MN{
 		//Construstor por defecto
 		Mrk4();
 		//Constructor
+		//Parametros
+		/*condicion inicial x0,y0, aprocimacion ax y por ultimo h*/
 		Mrk4(float, float, float, float);
 		
 		//Funciones miembros
-		void setXi(const float);
-		void setXf(const float);
-		void setY(const float);
-		void setI(const float);
+		void setX0(const float);
+		void setY0(const float);
+		void setAx(const float);
+		void setH(const float);
 		
 		
-		const float getXi()const;
-		const float getXf()const;
-		const float getY()const;
-		const float getI()const;
+		const float getX0()const;
+		const float getY0()const;
+		const float getAx()const;
+		const float getH()const;
 	
 		void mostrar();	
 		void solucion();
@@ -32,8 +34,7 @@ class Mrk4:public MN{
 		
 	private:
 		//Miembro de datos
-		float xi,xf,y;	
-		int i, a;
+		float x0, y0, ax, h;
 };
 
 #endif 
