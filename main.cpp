@@ -6,7 +6,8 @@ int main()
 {
 	//Probando funcion
 	Mrk4 m1(1,5,1.2,0.1);
-	m1.mostrar();
+	Mrk4 resultado;
+	float resultado2;
 	
 	return 0;
 }

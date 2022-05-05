@@ -52,7 +52,7 @@ const float Mrk4::getH()const{
 	return h;
 }
 
-float Mrk4::solucion(const Mrk4 *mrk1){
+float operator !(const Mrk4 &mrk1){
 	
 	float k1,k2,k3,k4,n,y,k;
 	cout<<"\nh = "<<h<<endl;

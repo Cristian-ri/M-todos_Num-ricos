@@ -7,6 +7,8 @@
 //Funcion sin errores
 class Mrk4:public MN{
 	
+	friend float &operator !(const Mrk4 &);
+	
 	public:
 		//Construstor por defecto
 		Mrk4();
@@ -27,10 +29,7 @@ class Mrk4:public MN{
 		const float getAx()const;
 		const float getH()const;
 	
-		void mostrar();	
-		float solucion(const Mrk4 *);
-		
-		
+		void mostrar();			
 		
 	private:
 		//Miembro de datos
