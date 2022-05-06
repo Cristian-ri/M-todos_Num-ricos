@@ -1,126 +1,62 @@
-#include <iostream>
 #include<math.h>
-using std :: endl;
+#include<iostream>
+#include<iomanip>
+using std::endl;
 using std::cout;
 using std::cin;
- #include "Euler.hpp"
- #include"Ecuacion.h"
-Euler::Euler(float mixi,float mixf,float miy,int mii ){
-	
-	
-	this->xi=mixi;
-	this->xf=mixf;
-	this->y=miy;
-	this->i=mii;
-	
-	
-} 
+using std::setw;
+#include"MetodoNumerico.hpp"
+#include"Euler.hpp"
 
-Euler::Euler(){
-this->xi=0;
-this->xf=0;
-this->y=0;
-this->i=0;	
+
+Euler::Euler(double xi,double xf,double yi,double h,double miti,double mitf):MetodoNumerico(xi,xf,yi,h){
 	
 	
-	
+	this->ti=miti;
+	this->tf=mitf;
 	
 }
 
 
-
-
-
-
-
-float Euler::setvalorinicialx(const float mixi){
+const double Euler::getti(){
 	
 	
-	this-> xi=mixi;
+	return this->ti;
 }
 
-float Euler::setvalorfinalx(const float mixf){
+void Euler::solucion(double xi,double xf,double yi,double h,double ti,double tf){
 	
-	
-	
-	this-> xf=mixf;
-	
-	 
-}
-float Euler::setvalorinicialy(const float miy){
-	
-	
-	
-	this->y=miy;
-}
-int Euler::setnumiteraciones(const int mii){
-	
-	
-	
-	 this->i=mii;
-	
-	
-}
-const float Euler:: getxi()const{
-
-return xi;
-}
-const float Euler:: getxf()const{
-
-
-return xf;
-}
-const float Euler::gety()const{
-
-
-return y;
-}
-const int Euler::getiteracion()const{
-
-return i;
-}
-
-float Euler:: solucion(){
-	
-int i,a;
-	float xi,xf,h,k,y,f;
-
-	h = (xf - xi)/i;
-	cout<<"\nh = "<<h<<endl;
-	cout<<"0\t|x = "<<xi<<"\ty = "<<y;
-	f = (xi*y);
+    int n,a,i;
+    double k,f;
+    n=(tf-ti)/h;
+    f = (xi*yi);
 	cout<<"\tf(x,y) = "<<f<<endl;
 	k = xi+h;
-	for(a = 1; a<=i ; a++)
+	for(i = 0; i<n+1 ; i++)
 	{
-		y = y + (h*f);
-		f = (k*y);
-		cout<<a<<"\t|x = "<<k<<"\ty = "<<y<<"\tf(x,y) = "<<f<<endl;
+		yi = yi + (h*f);
+		f = (k*yi);
+		cout<<a<<"\t|x = "<<k<<"\ty = "<<yi<<"\tf(x,y) = "<<f<<endl;
 		k=k+h;
 	}
-	cout<<"\nEl resultado es : \n\ty = "<<y<<endl;
+	cout<<"\nEl resultado es : \n\ty = "<<yi<<endl;
+    	
+    	
+    	
+	}
+    
+Euler::Euler(){
+
 	
 	
 }
-
-
-void Euler::mostrarfuncion(){
+void Euler::mostrar(){
 	
-	
-	
-
-	cout<<"Ingrese valor inicial de x : \nx0 = ";
-	cin>>xi;
-	cout<<"Ingrese valor final de x : \nxf =";
-	cin>>xf;
-	cout<<"Ingrese valor inicial de y : \ny =";
-	cin>>y;
-	cout<<"Ingrese numero de iteraciones : \ni =";
-	cin>>i;
-	
-	
-
-	
+	cout<<"hola"<<endl;
 	
 	
 }
+	
+	
+
+

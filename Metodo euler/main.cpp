@@ -1,18 +1,18 @@
 #include<iostream>
-#include"Euler.hpp"
-#include"Ecuacion.h"
-void agregardatos(Euler*,int);
-int main(){
- 
+#include<iomanip>
+#include<math.h>
 
-	Euler L(1,2,3,4);
-	L.mostrarfuncion();
-	L.solucion();
+#include"MetodoNumerico.hpp"
+#include"Euler.hpp"
+
+
+int main(){
 	
-	
-	
-	
-	
+
+
+Euler p1;
+ p1.solucion(1,2,3,0.05,1,4);
+p1.mostrar();
+
 	return 0;
 }
-

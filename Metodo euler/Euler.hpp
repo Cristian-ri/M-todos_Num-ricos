@@ -1,42 +1,32 @@
-
-#include <iostream>
 #include<math.h>
-using std :: endl;
+#include<iostream>
+#include<iomanip>
+using std::endl;
 using std::cout;
 using std::cin;
-#include"Ecuacion.h" 
+using std::setw;
 #ifndef EULER
 #define EULER
-class Euler{
+#include"MetodoNumerico.hpp"
+
+
+class Euler:public MetodoNumerico{
 	
-	public: 
-	Euler(float,float,float,int );
-	Euler();
-	void mostrarfuncion();
-	 float setvalorinicialx(const float);
-	 float setvalorfinalx(const float);
- float 	setvalorinicialy(const float);
- 
- const float getxi()const;
-		const float getxf()const;
-		const float gety()const;
-		const int getiteracion()const;
+	public:
+		Euler(double,double,double,double,double,double);
+		Euler();
+		
+		const double getti();
+		void mostrar();
+		void solucion(double,double,double,double,double,double);
 	
-		void mostrar();	
-		float solucion();
-int	setnumiteraciones(const int);
 	private:
-	 float xi,xf,y;
-	 int i;
 	
-	
-	
-	
+	    double tf,ti;
 	
 	
 	
 	
 	
 };
-
 #endif
